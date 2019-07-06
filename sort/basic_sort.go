@@ -1,4 +1,4 @@
-package main
+package sort
 
 // O(N^2)
 //冒泡排序 - 每一轮后有效问题规模都会减少
@@ -39,11 +39,11 @@ func BubbleSort(arr []int) {
 }
 
 
-//交换两个变量的值
-func swap(a,b *int) {
-	tmp := *a
-	*a = *b
-	*b = tmp
+// 交换数组中两个数
+func swapArrElem(arr []int, a int, b int) {
+	tmp := arr[a]
+	arr[a] = arr[b]
+	arr[b] = tmp
 }
 
 
@@ -91,42 +91,5 @@ func SelectionSort(arr []int) {
 }
 
 
-//O(N * logN)
-//归并排序
-func MergeSort(arr []int) {
-
-}
-
-//快速排序-2路
-func QuickSort(arr []int) {
-
-}
-
-
-//O(c) + 空间复杂度O(N)
-//计数排序
-func BasicSort(arr []int) {
-
-}
-
-
-
-func main(){
-
-	//统一测试规范
-	TestSort(BubbleSort, 10, 100, 500000)
-	TestSort(InsertionSort, 10, 100, 500000)
-	TestSort(SelectionSort, 10, 100, 500000)
-
-
-
-	//测试排序算法的时间性能
-	//arr := GenerateRandomArrayFixed(30000, 1024)
-	//fmt.Println(arr)
-	//t := TestSortTime(BubbleSort, arr)
-	//fmt.Println(arr)
-	//fmt.Println(t, " ms")
-
-}
 
 

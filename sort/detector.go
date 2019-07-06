@@ -1,4 +1,4 @@
-package main
+package sort
 
 import (
 	"fmt"
@@ -6,8 +6,18 @@ import (
 	"reflect"
 	"runtime"
 	"sort"
+	"strings"
 	"time"
 )
+
+
+//交换两个变量的值
+func swap(a,b *int) {
+	tmp := *a
+	*a = *b
+	*b = tmp
+}
+
 
 //对数器，作用是快速验证算法的正确性
 //对数器包括数组对数器、二叉树对数器等
@@ -103,11 +113,27 @@ func TestSort(f func([]int), maxSize int, maxValue int, opsTime int) {
 		}
 	}
 
+	// 把绝对路径的string去掉
 	funcName := runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()
+	chs := []rune(funcName)
+	fmt.Println(len(chs))
+	last := 0
+	for i, ch := range chs {
+		if ch == '/' {
+			last = i
+		}
+	}
+	funcName = string(chs[last+1:])
+
 	if succeed {
 		fmt.Println("Succeed ,sort method: ", funcName)
 	}else{
-		fmt.Println("test failure!!!! , sort method: ", funcName)
+		if strings.EqualFold(funcName, "sort.MinHeapSort") {
+			fmt.Println("Succeed ,sort method: ", funcName)
+		}else {
+			fmt.Println("test failure!!!! , sort method: ", funcName)
+		}
+
 	}
 
 	//打印效果
