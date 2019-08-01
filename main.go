@@ -1,4 +1,4 @@
-package Interview
+package main
 
 import (
 	"./sort"
@@ -12,9 +12,9 @@ func main(){
 	////TestSort(BubbleSort, 10, 100, 50000)
 	////TestSort(InsertionSort, 10, 100, 50000)
 	////TestSort(SelectionSort, 10, 100, 50000)
-	//sort.TestSort(sort.MergeSortRecursive, maxSize, maxVal, opsTime)
-	//sort.TestSort(sort.QuickSortOfRandom3Part, maxSize, maxVal, opsTime)
-	//sort.TestSort(sort.MaxHeapSort, maxSize, maxVal, opsTime)
+	sort.TestSort(sort.MergeSortRecursive, maxSize, maxVal, opsTime)
+	sort.TestSort(sort.QuickSortOfRandom3Part, maxSize, maxVal, opsTime)
+	sort.TestSort(sort.MaxHeapSort, maxSize, maxVal, opsTime)
 	sort.TestSort(sort.MinHeapSort, maxSize, maxVal, opsTime)
 	//arr := []int{1,3,4,2,5}
 	//fmt.Println(solutions.SmallSumArray(arr))
